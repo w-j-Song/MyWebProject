@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>회원가입</title>
+            <link rel = "stylesheet" href="../css/style.css">
+    </head>
+    <body>
+        <div class = "header">
+            <h1>IT 웹페이지</h1>
+        </div>
+        <div class = "nav">
+             <ul class = "menu">
+                <li><a href="../index.html">홈</a></li>
+                <li><a href="./login.html">로그인</a></li>
+                <li><a href="join.html">회원가입</a></li>
+                <li><a href="./profile.html">프로필</a></li>
+                <li><a href="./portfolio.html">포트폴리오</a></li>
+                <li><a href="./board.html">자유게시판</a></li>
+            </ul>  
+        </div>
+        <div class = "main">
+                <div class = "aside"></div>
+                    <div class = "contents">
+                        <fieldset class = "field">
+                            <h2>회원가입</h2>
+                        </fieldset>
+                    <form name = join action = "#" method = "get">
+                            <fieldset>
+                                <legend>기본 정보</legend>
+                                <p>
+                                    <label for = "id">아이디</label>
+                                    <input type = "text" name = "id" id = "id" placehoder="id">
+                                </p>
+                                <p>
+                                    <label for = "pwd">비밀번호</label>
+                                    <input type = "password" name = "pwd" id = "pwd" placehoder="pwd" >
+                                </p>
+                            </fieldset>
+                             <fieldset>
+                                <legend>선택 정보</legend>
+                                <p>
+                                    <label for = "age">나이</label>
+                                    <input type = "number" name = "age" id = "age">
+                                </p>
+                                <p>
+                                    성별 :
+                                    <input type = "radio" name = "gender" value = "M" >남자
+                                    <input type = "radio" name = "gender" value = "F" >여자
+                                </p>
+                                <p>
+                                    지역 <select name = "city" is = "city">
+                                    <optgroup label = "서울시">
+                                        <option value = "강북구" selected >강북구</option>
+                                        <option value = "강남구">강남구</option>
+                                        <option value = "서초구">서초구</option>
+                                    </optgroup>
+                                    <optgroup label = "경기도">
+                                        <option value = "중원구">중원구</option>
+                                        <option value = "분당구">분당구</option>
+                                    </optgroup>
+                                    <optgroup label = "대전시">
+                                        <option value = "대덕구">대덕구</option>
+                                        <option value = "유성구">유성구</option>
+                                        <option value = "중구">중구</option>
+                                        <option value = "동구">동구</option>
+                                        <option value = "서구">서구</option>
+                                    </optgroup>
+                                    </select>
+                                </p>
+                                 <p>
+                                    <label for = "addr">주소</label>
+                                    <input placeholder = "주소를 입력해 주세요." type = "text" name = "addr" id = "addr">
+                                </p>
+                                 <p>
+                                    <label for = "intro">자기소개</label>
+                                    <textarea name = "intro" id = "intro"></textarea>
+                                </p>
+                                <input type = "button" name="button" id="butt" value = "회원가입">
+                            </fieldset>
+                        </form>
+                        <script>
+                                const btnE3 = document.join.button;
+                                btnE3.onclick = function() {
+                                const user = document.join.id;
+                                const pwd = document.join.pwd;
+                                const userage = document.join.age;
+                                const sx = document.join.gender;
+                                const adr = document.join.addr;
+                                const int = document.join.intro;
+
+                                    
+                                //아이디 입력 확인
+                                if(user.value == "") {
+                                    alert("아이디를 입력해주세요.");
+                                    user.focus();
+                                    return false;
+                                }
+                                
+                                // 이메일 형식 확인
+                                if(user.value.indexOf("@") == -1) {
+                                    alert("이메일 형식에 맞게 입력해 주세요.");
+                                    user.focus();
+                                    return false;
+                                }
+
+                                //비밀번호 입력 확인
+                                if(pwd.value == "") {
+                                    alert("비밀번호를 입력해주세요.");
+                                    pwd.focus();
+                                    return false;
+                                }
+
+                                //비밀번호 자릿수 확인
+                                if(pwd.value.length < 5) {
+                                    alert("비밀번호는 5자리 이상 입력해 주세요.");
+                                    pwd.focus();
+                                    return false;
+                                }
+
+                                // 영문자 확인
+                                if(checkChar(pwd.value) == 0 || checkMath(pwd.value) == 0 || checkSpchr(pwd.value) == 0 ) {
+                                    alert("영문자, 숫자, 특수문자 중 반드시 하나 이상 포함해야 합니다.");
+                                    pwd.focus();
+                                    return false;
+                                }
+
+                                // 특수문자 확인
+                                if (notCheck(pwd.value)>pwd.value.length) {
+                                    alert("!,@,#,$,%,^,&,*,+,-,/ 외 특수문자는 사용할 수 없습니다.");
+                                    pwd.focus();
+                                    return false;
+                                }
+
+                                if ( userage.value == "") {
+                                    alert("나이를 입력해 주세요.");
+                                    userage.focus();
+                                    return false;
+                                }
+
+                                // 성별
+                                if (sx.value == 0) {
+                                    alert("성별을 체크해주세요.");
+                                    return false;
+                                }
+                                
+                                // 주소
+                                if ( adr.value == "") {
+                                    alert("주소를 입력해 주세요.");
+                                    adr.focus();
+                                    return false;
+                                }
+                                
+                                // 자기소개
+                                if (int.value == "") {
+                                    alert("자기소개를 입력해 주세요.");
+                                    int.focus();
+                                    return false;
+                                }
+                             
+
+                                //submit
+                                document.join.submit();
+
+                                }
+
+                                function checkChar(password) {
+                                    let charCnt = 0;
+                                    // 자바는 문자열 length는 () 필수 자바 스크립트는 필요없음
+                                    for (let i=0; i<password.length; i++) {	
+                                    if (password.charAt(i) >= 'A' && password.charAt(i) <= 'Z' || 
+                                            password.charAt(i) >= 'a' && password.charAt(i) <= 'z') {
+                                        charCnt++;
+                                            }
+                                }
+                                return charCnt;
+                            }
+
+                            function checkSpchr(password) {
+                                let spchrCnt = 0;
+                                spchar = ['!','@','#','$','%','^','&','*','+','-','/'];
+                                for (let i=0; i<password.length; i++) {	
+                                for (let j=0; j<spchar.length;j++) {
+                                        if (password.charAt(i) == spchar[j]) {
+                                            spchrCnt++;
+                                        }
+                                    }	
+                                }
+                                return spchrCnt;	
+                            }
+
+                            function checkMath (password) {
+                                let numCnt = 0;
+                                for (let i=0; i<password.length; i++) {
+                                if(password.charAt(i) >= 0 && password.charAt(i) <= 9) {
+                                    numCnt++;
+                                    }
+                            }
+                            return numCnt;
+                            }
+
+                            function notCheck(password) {
+                                let cnt = 0;
+                                spchar = ['!','@','#','$','%','^','&','*','+','-','/'];
+                                for (let i=0; i<password.length; i++) {	
+                                for (let j=0; j<spchar.length;j++) {
+                                        if (password.charAt(i) != spchar[j]) {
+                                            cnt++;
+                                        }
+                                    }	
+                                }
+                                return cnt;	
+                            }
+
+                        </script>
+
+                    </div>
+                <div class = "aside"></div>
+                </div>
+            <div class = "footer">
+                <p>IT 웹페이지</p>
+            </div>
+    </body>
+</html>

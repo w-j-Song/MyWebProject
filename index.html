@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>웹 페이지 작성 실습</title>
+            <link rel = "stylesheet" href="./css/style.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="./js/script.js"></script>
+    <body>
+        <div class = "header">
+            <h1>IT 웹페이지</h1>
+        </div>
+        <div class = "nav">
+            <ul class = "menu">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="./html/login.html">로그인</a></li>
+                <li><a href="./html/join.html">회원가입</a></li>
+                <li><a href="./html/profile.html">프로필</a></li>
+                <li><a href="./html/portfolio.html">포트폴리오</a></li>
+                <li><a href="./html/board.html">자유게시판</a></li>
+            </ul>    
+        </div>
+        <div class = "main">
+            <div class = "aside-left"></div>
+            <div class = "contents">
+                <fieldset class = "field">
+                <h2>홈</h2>
+                </fieldset>
+            </div>
+            <div class="aside-right">
+                <div class="asidr-right">
+                <h3>오늘 할 일</h3>
+                <div id="todolist">
+                    <input type="text" id="taskInput" placeholder="할 일을 추가해주세요." onkeydown="inputKey(event)">
+                    <input type="button" id="addTask" value="추가" onclick="addTask()">
+                    <input type="button" id="delTask" value="삭제" onclick="delTask()">
+                    <table>
+                        <tr>
+                            <th id="h-num">번호</th>
+                            <th id="h-todo">할 일</th>
+                            <th id="h-check"><input type="checkbox" onclick="allCheck(this)"></th>
+                        </tr>
+                        <!--여기로 할 일 추가-->
+                </table>
+            </div>
+        </div>
+            </div>
+            </div>
+            <div class = "footer">
+                <p>IT 웹페이지</p>
+            </div>
+    </body>
+</html>

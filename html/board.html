@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>자유게시판</title>
+            <link rel = "stylesheet" href="../css/style.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="../js/scriptt.js"></script>
+    </head>
+    <body>
+        <div class = "header">
+            <h1>IT 웹페이지</h1>
+        </div>
+        <div class = "nav">
+             <ul class = "menu">
+                <li><a href="../index.html">홈</a></li>
+                <li><a href="./login.html">로그인</a></li>
+                <li><a href="./join.html">회원가입</a></li>
+                <li><a href="./profile.html">프로필</a></li>
+                <li><a href="./portfolio.html">포트폴리오</a></li>
+                <li><a href="board.html">자유게시판</a></li>
+            </ul>  
+        </div>
+        <div class = "main">
+            <div class = "aside"></div>
+            <div class = "contents">
+                <fieldset class = "field">
+                <h2>자유게시판</h2>
+                </fieldset>
+                    <div id="list"> 
+                    <form name = "writePost" id = "writePost" action="#" method="get"></form> 
+                    <h2>글 쓰기</h2>    
+                    <table>
+                    <tr>
+                        <th id="h-title0">제목</th><td><input type="text" id="t1" name="t1" placeholder="제목" onkeydown="inputK(event)"></td>
+                    </tr>
+                    <tr>
+                        <th id="h-post0">본문</th><td><input type="text" id="t3" name="t3" placeholder="글쓰기" onkeydown="inputK(event)"></td>
+                    </tr>
+                    <tr>
+                        <th id="h-user0">작성자</th><td><input type="text" id="t2" name="t2" placeholder="작성자" onkeydown="inputK(event)"></td>
+                    </tr>       
+                    </table>
+                    <input type="button" id="saveWrite" value="저장" onclick="write_Post()">
+                    <input type="button" id="writeClose" value="창닫기" onclick="writeClose()">
+                    </form>    
+                      </div>   
+                      <div id="readForm"> 
+                    <form name = "readPost" action="#" method="get"></form> 
+                    <h2>글</h2>    
+                    <table>
+                    <tr>
+                        <th id="nom">번호</th><td id = "read-no"></td>
+                    </tr>
+                    <tr>
+                        <th id="ti">제목</th><td id = "read-title" onkeydown="inputKey(event)"></td>
+                    </tr>
+                    <tr>
+                        <th id="po">내용</th><td id = "read-content" onkeydown="inputKey(event)"></td>
+                    </tr>
+                    <tr>
+                        <th id="us">작성자</th><td id = "read-name" ></td>
+                    </tr>
+                    <tr>
+                        <th id="to">작성일</th><td id = "read-date"></td>
+                    </tr> 
+                    <tr>
+                        <td colspan="2" class="align-center">
+                            <input type="button" id="edit-button" value="수정" onclick="edit_post()">
+                            <input type="button" id="save-button" value="저장" onclick="save_post()">
+                            <input type="button" value="닫기" onclick="closeRead()">
+                        </td>
+                    </tr>          
+                    </table>
+                    </form>    
+                    </div> 
+                      <div id="postList"> 
+                      <input type="button" id="writeWrite" value="글쓰기" >
+                      <input type="button" id="delPost" value="삭제" onclick="delPost()">
+                      <form name = "wrPost" id = "wrList" action="#" method="get">
+                        <table>
+                        <tr>
+                            <th id="h-num1">글번호</th>
+                            <th id="h-title">제목</th>
+                            <th id="h-post">본문</th>
+                            <th id="h-user">작성자</th>
+                            <th id="h-today">작성일</th>
+                            <th id="h-check"><input type="checkbox" onclick="allCheck(this)"></th>
+                        </tr>
+                        <!--여기로 할 일 추가-->
+                </table>
+                </form>
+                </div>
+            </div>
+            <div class = "aside"></div>
+            </div>
+            <div class = "footer">
+                <p>IT 웹페이지</p>
+            </div>
+    </body>
+</html>
